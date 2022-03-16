@@ -22,8 +22,9 @@ Character f can be replaced with FrequencyDomain
 Character t can be replaced with Time_Domain
 
 # Labels
+```{r}
 name.new <- names(data.sub)
-
+name.new <- gsub("[(][)]", "", name.new)
 name.new <- gsub("^t", "TimeDomain_", name.new)
 name.new <- gsub("^f", "FrequencyDomain_", name.new)
 name.new <- gsub("Acc", "Accelerometer", name.new)
@@ -32,7 +33,8 @@ name.new <- gsub("Mag", "Magnitude", name.new)
 name.new <- gsub("-mean-", "_Mean_", name.new)
 name.new <- gsub("-std-", "_StandardDeviation_", name.new)
 name.new <- gsub("-", "_", name.new)
-
+names(data.sub) <- name.new
+```
 # Other Variables
 
 names(data_project)
